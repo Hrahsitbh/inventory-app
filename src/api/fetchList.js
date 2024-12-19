@@ -4,8 +4,9 @@ async function fetchList() {
   try {
     const data = await fetch(API_URL);
     // if rate limit exceeded, return mock data
-    let res = mock;
+    let res;
     if (data.ok) res = await data.json();
+    else res = mock;
     return res;
   } catch (e) {
     console.warn(e);
